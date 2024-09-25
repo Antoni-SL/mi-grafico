@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de Google Charts</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        // Cargar la biblioteca de Google Charts
+        google.charts.load('current', {'packages':['corechart']});
+        
+        // Establecer la función para dibujar el gráfico
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            // Crear los datos para el gráfico
+            var data = google.visualization.arrayToDataTable([
+                ['Elemento', 'Valor'],
+                ['A', 10],
+                ['B', 20],
+                ['C', 30],
+                ['D', 40]
+            ]);
+
+            // Opciones del gráfico
+            var options = {
+                title: 'Título del Gráfico',
+                width: 600,
+                height: 400,
+                hAxis: {title: 'Elementos'},
+                vAxis: {title: 'Valores'},
+                legend: 'none'
+            };
+
+            // Crear el gráfico de barras
+            var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+<body>
+    <h1>Mi Gráfico Personalizado</h1>
+    <div id="chart_div"></div>
+</body>
+</html>
